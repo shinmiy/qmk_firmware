@@ -10,6 +10,8 @@
 #define _DVORAK 2
 #define _LOWER 3
 #define _RAISE 4
+#define _ARROW 5
+#define _LEFT 6
 #define _ADJUST 16
 
 enum custom_keycodes {
@@ -22,6 +24,17 @@ enum custom_keycodes {
   LEFT,
   ADJUST,
 };
+
+// Fillers to make layering more clear
+// #define _______ KC_TRNS
+#define XXXXXXX KC_NO
+#define JA_CLON KC_QUOT  // : and +
+#define JA_AT   KC_LBRC  // @ and `
+#define JA_HAT  KC_EQL   // ^ and ~
+#define JA_ENUN KC_RO    // \ and _ (EN mark and UNder score)
+#define JA_ENVL KC_JYEN  // \ and | (EN mark and Vertical Line)
+#define JA_LBRC KC_RBRC  // [ and {
+#define JA_RBRC KC_BSLS  // ] and }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -101,10 +114,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
  * `-----------------------------------------------------------------------------------'
  */
-[_LOWER] = LAYOUT_ortho_4x12( \
+[_LOWER] = LAYOUT( \
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC, \
   KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC, \
-  _______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS,    JA_AT,      JA_LBRC, JA_RBRC, JA_ENVL, \
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_UNDS,    JA_AT,      JA_LBRC, JA_RBRC, JA_ENVL, \
   _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  S(KC_NUHS), S(KC_NUBS), KC_MHEN, KC_HENK, JA_CLON, \
   _______, _______, _______, _______, _______, _______, _______, _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY \
 ),
@@ -165,7 +178,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_ARROW] = LAYOUT( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, KC_LEFT, KC_UP  , KC_DOWN,  KC_RGHT, _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______, \
+  _______, _______, KC_LEFT, KC_UP  , KC_DOWN, KC_RGHT, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______, \
   _______, KC_HENK, KC_MHEN, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
@@ -182,7 +195,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '-----------------------------------------'-----------------------------------------'
  */
 
-[_LEFT] = LAYOUT_ortho_4x12( \
+[_LEFT] = LAYOUT( \
   KC_BSPC, KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,    _______, KC_7,    KC_8,    KC_9,    _______, _______, \
   KC_BSPC, KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,    _______, KC_7,    KC_8,    KC_9,    _______, _______, \
   KC_ENT , KC_SCLN, KC_L,    KC_K,    KC_J,    KC_H,    _______, KC_4,    KC_5,    KC_6,    _______, _______, \
