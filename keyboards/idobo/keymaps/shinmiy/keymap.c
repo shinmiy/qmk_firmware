@@ -29,7 +29,8 @@ enum custom_keycodes {
 #define _LOWER 1
 #define _RAISE 2
 #define _ARROW 3
-#define _ADJUST 16
+#define _LEFT 4
+#define _ADJUST 5
 
 // Fillers to make layering more clear
 // #define _______ KC_TRNS
@@ -58,13 +59,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_QWERTY] = LAYOUT_ortho_5x15( /* QWERTY */
-    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______, _______, _______, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______, _______, _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,  \
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, KC_UP,   _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, JA_ENUN, \
-    KC_ESC,  KC_LALT, KC_LGUI, ARROW,   LOWER,   KC_SPC,  KC_LEFT, KC_DOWN, KC_RGHT, KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
- ),
+[_QWERTY] = LAYOUT_ortho_5x15( /* QWERTY */
+  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
+  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    _______, _______, _______, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+  KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    _______, _______, _______, KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT,  \
+  KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    _______, _______, _______, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, JA_ENUN, \
+  KC_ESC,  KC_LALT, KC_LGUI, ARROW,   LOWER,   LEFT,    KC_LGUI, _______, KC_RGUI, KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT  \
+),
 
 /* FUNCTION
  * .--------------------------------------------------------------------------------------------------------------------------------------.
@@ -80,23 +81,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_LOWER] = LAYOUT_ortho_5x15( /* FUNCTION */
-    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  _______, _______, _______, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_DEL,  \
-    KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  KC_P7,   KC_P8,   KC_P9,   KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC, \
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_P4,   KC_P5,   KC_P6,   KC_F6,   KC_UNDS,    JA_AT,      JA_LBRC, JA_RBRC, JA_ENVL, \
-    _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_P1,   KC_P2,   KC_P3,   KC_F12,  S(KC_NUHS), S(KC_NUBS), KC_LANG2,KC_LANG1,JA_CLON, \
-    _______, _______, _______, _______, _______, _______,  KC_P0,   _______, KC_PDOT, _______, _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY  \
- ),
-
-[_RAISE] = LAYOUT( \
-KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
-KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
-_______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______, _______, KC_F6,   KC_MINS, JA_HAT,  JA_AT,   KC_RBRC, KC_BSLS, \
-_______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  _______, _______, _______, KC_F12,  KC_NUHS, KC_NUBS, KC_LANG2,KC_LANG1,_______, \
-_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY \
+[_LOWER] = LAYOUT_ortho_5x15( /* FUNCTION */
+  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  _______, _______, _______, KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_DEL,  \
+  KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,  KC_P7,   KC_P8,   KC_P9,   KC_CIRC, KC_AMPR,    KC_ASTR,    KC_LPRN, KC_RPRN, KC_BSPC, \
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,    KC_P4,   KC_P5,   KC_P6,   KC_F6,   KC_UNDS,    JA_AT,      JA_LBRC, JA_RBRC, JA_ENVL, \
+  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_P1,   KC_P2,   KC_P3,   KC_F12,  S(KC_NUHS), S(KC_NUBS), KC_LANG2,KC_LANG1,JA_CLON, \
+  _______, _______, _______, _______, _______, _______,  _______, KC_P0,   KC_PDOT, _______, _______,    KC_MNXT,    KC_VOLD, KC_VOLU, KC_MPLY  \
 ),
 
-[_ARROW] = LAYOUT( \
+[_RAISE] = LAYOUT_ortho_5x15( \
+  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_DEL, \
+  KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    _______, _______, _______, KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC, \
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______, _______, _______, KC_F6,   KC_MINS, JA_HAT,  JA_AT,   KC_RBRC, KC_BSLS, \
+  _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  _______, _______, _______, KC_F12,  KC_NUHS, KC_NUBS, KC_LANG2,KC_LANG1,_______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY \
+),
+
+[_ARROW] = LAYOUT_ortho_5x15( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, KC_LEFT, KC_UP  , KC_DOWN, KC_RGHT, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______, \
@@ -104,7 +105,15 @@ _______, _______, _______, _______, _______, _______, _______, _______, _______,
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 ),
 
-[_ADJUST] =  LAYOUT( \
+[_LEFT] = LAYOUT_ortho_5x15( \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+  KC_BSPC, KC_P,    KC_O,    KC_I,    KC_U,    KC_Y,    _______, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, _______, \
+  KC_ENT , KC_SCLN, KC_L,    KC_K,    KC_J,    KC_H,    _______, _______, _______, _______, KC_4,    KC_5,    KC_6,    _______, _______, \
+  JA_ENUN, KC_SLSH, KC_DOT,  KC_COMM, KC_M,    KC_N,    _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    _______, _______, \
+  KC_SPC,  _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_0,    _______, _______, _______, _______  \
+),
+
+[_ADJUST] =  LAYOUT_ortho_5x15( \
   _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, _______, _______, _______, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL , \
   _______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, _______, _______, _______, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL , \
   _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, _______, _______, _______, AG_SWAP, _______, _______,  _______, _______, _______, \
@@ -149,6 +158,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         layer_on(_ARROW);
       } else {
         layer_off(_ARROW);
+      }
+      return false;
+      break;
+    case LEFT:
+      if (record->event.pressed) {
+        layer_on(_LEFT);
+      } else {
+        layer_off(_LEFT);
       }
       return false;
       break;
